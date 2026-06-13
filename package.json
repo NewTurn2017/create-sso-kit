@@ -1,11 +1,17 @@
 {
   "name": "create-sso-kit",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Scaffold a subdomain-SSO starter (Next.js 15 + Convex + Better Auth) and let your AI agent finish setup via SETUP.md.",
   "type": "module",
-  "bin": { "create-sso-kit": "dist/cli.js" },
-  "files": ["dist"],
-  "engines": { "node": ">=18" },
+  "bin": {
+    "create-sso-kit": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc -p tsconfig.json",
@@ -13,12 +19,27 @@
     "test": "node --import tsx --test test/*.test.ts",
     "prepublishOnly": "npm run typecheck && npm run build"
   },
-  "keywords": ["sso", "subdomain", "convex", "better-auth", "nextjs", "scaffold", "create"],
-  "repository": { "type": "git", "url": "git+https://github.com/NewTurn2017/create-sso-kit.git" },
+  "keywords": [
+    "sso",
+    "subdomain",
+    "convex",
+    "better-auth",
+    "nextjs",
+    "scaffold",
+    "create"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NewTurn2017/create-sso-kit.git"
+  },
   "homepage": "https://github.com/NewTurn2017/create-sso-kit#readme",
-  "bugs": { "url": "https://github.com/NewTurn2017/create-sso-kit/issues" },
+  "bugs": {
+    "url": "https://github.com/NewTurn2017/create-sso-kit/issues"
+  },
   "license": "MIT",
-  "dependencies": { "tar": "^7.4.3" },
+  "dependencies": {
+    "tar": "^7.4.3"
+  },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "tsx": "^4.20.0",
