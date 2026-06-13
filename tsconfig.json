@@ -3,14 +3,11 @@
     "target": "es2022",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "outDir": "dist",
-    "rootDir": "src",
     "strict": true,
-    "declaration": false,
-    "sourceMap": false,
     "skipLibCheck": true,
     "verbatimModuleSyntax": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
   },
-  "include": ["src"]
+  "include": ["src", "test"]
 }
