@@ -1,0 +1,23 @@
+{
+  "name": "create-sso-kit",
+  "version": "0.1.0",
+  "description": "Scaffold a subdomain-SSO starter (Next.js 15 + Convex + Better Auth) and let your AI agent finish setup via SETUP.md.",
+  "type": "module",
+  "bin": { "create-sso-kit": "dist/cli.js" },
+  "files": ["dist"],
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "test": "node --import tsx --test test/*.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["sso", "subdomain", "convex", "better-auth", "nextjs", "scaffold", "create"],
+  "license": "MIT",
+  "dependencies": { "tar": "^7.4.3" },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
