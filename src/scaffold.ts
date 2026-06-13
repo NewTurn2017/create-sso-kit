@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile, readdir } from "node:fs/promises";
 import { existsSync, rmSync } from "node:fs";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
-import { tarballUrl, downloadAndExtract } from "./template.js";
+import { tarballUrl, downloadAndExtract, extractTarball } from "./template.js";
 import { setPackageName, injectProjectName } from "./customize.js";
 import type { ResolvedName } from "./validate.js";
 
@@ -11,8 +11,19 @@ export interface ScaffoldIO {
   initGit: (dest: string) => void;
 }
 
+/**
+ * Test/offline seam: when CREATE_SSO_KIT_TEMPLATE_TGZ points at a local .tar.gz,
+ * the real bin extracts that instead of fetching from GitHub. Lets the CLI run
+ * (and be spawned in tests) with no network. Unset in normal use → live fetch.
+ */
+export const LOCAL_TEMPLATE_ENV = "CREATE_SSO_KIT_TEMPLATE_TGZ";
+
 export const defaultIO: ScaffoldIO = {
-  fetchTemplate: (ref, dest) => downloadAndExtract(tarballUrl(ref), dest),
+  fetchTemplate: (ref, dest) => {
+    const localTgz = process.env[LOCAL_TEMPLATE_ENV];
+    if (localTgz) return extractTarball(localTgz, dest);
+    return downloadAndExtract(tarballUrl(ref), dest);
+  },
   initGit: (dest) => {
     rmSync(join(dest, ".git"), { recursive: true, force: true }); // defensive (tarball has none)
     const git = (args: string[]) => execFileSync("git", args, { cwd: dest, stdio: "ignore" });
