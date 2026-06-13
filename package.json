@@ -1,6 +1,6 @@
 {
   "name": "create-sso-kit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Scaffold a subdomain-SSO starter (Next.js 15 + Convex + Better Auth) and let your AI agent finish setup via SETUP.md.",
   "type": "module",
   "bin": { "create-sso-kit": "dist/cli.js" },

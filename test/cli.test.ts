@@ -6,6 +6,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as tar from "tar";
+import { DEFAULT_REF } from "../src/args.js";
 
 // Spawns the REAL bin (src/cli.ts via tsx) against a temp cwd — the spec-6
 // "run the local bin against a temp dir" check. Offline: the CLI's defaultIO
@@ -76,7 +77,10 @@ test("cli bin: scaffolds a temp dir and prints guidance with the chosen pm", asy
     const r = await runCli({ args: ["my-app", "--pm", "npm"], cwd, tgz });
 
     assert.equal(r.code, 0, r.stderr);
-    assert.match(r.stdout, /Scaffolding my-app from sso-kit@v0\.1\.1/);
+    assert.ok(
+      r.stdout.includes(`Scaffolding my-app from sso-kit@${DEFAULT_REF}`),
+      r.stdout,
+    );
     assert.match(r.stdout, /✅ Created my-app\./);
     assert.match(r.stdout, /cd my-app && claude/);
     // the --pm hint is wired through to the guidance
