@@ -14,6 +14,9 @@
     "prepublishOnly": "npm run typecheck && npm run build"
   },
   "keywords": ["sso", "subdomain", "convex", "better-auth", "nextjs", "scaffold", "create"],
+  "repository": { "type": "git", "url": "git+https://github.com/NewTurn2017/create-sso-kit.git" },
+  "homepage": "https://github.com/NewTurn2017/create-sso-kit#readme",
+  "bugs": { "url": "https://github.com/NewTurn2017/create-sso-kit/issues" },
   "license": "MIT",
   "dependencies": { "tar": "^7.4.3" },
   "devDependencies": {
