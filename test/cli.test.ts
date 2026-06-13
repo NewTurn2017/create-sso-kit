@@ -76,7 +76,7 @@ test("cli bin: scaffolds a temp dir and prints guidance with the chosen pm", asy
     const r = await runCli({ args: ["my-app", "--pm", "npm"], cwd, tgz });
 
     assert.equal(r.code, 0, r.stderr);
-    assert.match(r.stdout, /Scaffolding my-app from sso-kit@v0\.1\.0/);
+    assert.match(r.stdout, /Scaffolding my-app from sso-kit@v0\.1\.1/);
     assert.match(r.stdout, /✅ Created my-app\./);
     assert.match(r.stdout, /cd my-app && claude/);
     // the --pm hint is wired through to the guidance

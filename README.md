@@ -40,7 +40,7 @@ The agent reads `AGENTS.md` / `CLAUDE.md`, finds `SETUP.md`, and walks you throu
 | Flag | Description | Default |
 |---|---|---|
 | `[project-name]` | Positional; the target directory and package name. Prompted once if omitted. | — |
-| `--ref <tag>` | The `sso-kit` template tag to scaffold from. | `v0.1.0` |
+| `--ref <tag>` | The `sso-kit` template tag to scaffold from. | `v0.1.1` |
 | `--pm <pnpm\|npm\|yarn>` | Package manager named in the printed hint. | auto-detected |
 
 ## How it's designed
