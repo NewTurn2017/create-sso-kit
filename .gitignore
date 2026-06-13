@@ -1,6 +1,25 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+*.tsbuildinfo
+
+# Secrets / local env (keep .env.example tracked)
+.env
+.env.local
+.env*.local
+*.pem
+*.key
+
+# Caches
+.cache/
+
+# Local agent / tooling state — not part of the project
+.serena/
+.claude/
+.omx/
+.senior-mode/
+.agents/
 .DS_Store
 *.log
-node_modules
-dist
