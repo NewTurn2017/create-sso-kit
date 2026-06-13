@@ -6,7 +6,7 @@ export interface Options {
   pm: "pnpm" | "npm" | "yarn";
 }
 
-export const DEFAULT_REF = "v0.1.2";
+export const DEFAULT_REF = "v0.1.3";
 
 export function detectPm(userAgent = process.env.npm_config_user_agent ?? ""): Options["pm"] {
   if (userAgent.startsWith("yarn")) return "yarn";
